@@ -2,22 +2,22 @@ package sec.maru;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class MemberApi {
 
     @Autowired
-    private MemberService memberService;
+    MemberService memberService;
 
-    @GetMapping("/greeting")
-    public Member greeting() {
-       Member member = new Member();
-       member.setUname("제노임펙트");
-       member.setUserid("Xeno");
-       member.setUserpwd("12345");
-       return member;
+    @RequestMapping(value = "/")
+    public List<Member> greeting() {
+//        Member member = new Member();
+//        member.setUname("제노임펙트");
+//        member.setUserid("Xeno");
+//        member.setUserpwd("12345");
+        return memberService.selectMemberList();
     }
 }
