@@ -18,6 +18,10 @@ public class MemberApi {
 
     @Autowired
     MemberService memberService;
+    
+    public MemberApi(MemberService memberService) {
+        this.memberService = memberService;
+    }
 
     @RequestMapping(value = "/")
     public List<Member> search() {
