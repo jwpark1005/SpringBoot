@@ -7,5 +7,11 @@ import java.util.List;
 @Mapper
 @Repository
 public interface MemberRepository {
+
     List<Member> getUserList();
+
+    int totalAccount();
+
+    int userCheck();
+
 }
