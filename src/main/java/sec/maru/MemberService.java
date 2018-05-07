@@ -10,6 +10,10 @@ import java.util.List;
 public class MemberService {
 
     @Autowired
+    public MemberService() {
+    }
+    
+    @Autowired
     private MemberRepository memberRepository;
 
     public List<Member> selectMemberList(){
