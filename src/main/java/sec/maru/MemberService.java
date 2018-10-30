@@ -16,18 +16,6 @@ public class MemberService {
         return memberRepository.getUserList();
     }
 
-//    public boolean loginCheck(Member member) {
-//        int count = Integer.parseInt(memberRepository.userCheck().toString());
-//        int totalCount = memberRepository.totalAccount();
-//
-//        if(totalCount > 0){
-//            if(count > 0){
-//                return true;
-//            } else
-//                return false;
-//        }
-//        return false;
-//    }
 
     public Member MemberList(){
         Member member = new Member();

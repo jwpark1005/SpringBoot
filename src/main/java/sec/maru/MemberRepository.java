@@ -12,6 +12,6 @@ public interface MemberRepository {
 
     int totalAccount();
 
-    int userCheck();
+    int loginCheck();
 
 }

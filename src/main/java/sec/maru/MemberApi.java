@@ -19,6 +19,9 @@ public class MemberApi {
     @Autowired
     MemberService memberService;
 
+    @Autowired
+    LoginDAO loginDAO;
+
     @RequestMapping(value = "/")
     public List<Member> search() {
         return memberService.selectMemberList();
@@ -39,15 +42,15 @@ public class MemberApi {
     public void loginCheck(Locale locale, Model model, Member member, HttpSession session, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
-        if((member.getUname() != null && !member.getUserid().equals("") && member.getUserpwd() != null)){
-            if(memberService.loginCheck(member)){
+        if((member.getUname() != null && !member.getUserid().equals("") && member.getUserpwd() != null) && !member.getUserpwd().equals("")){
+            if(loginDAO.loginCheck(member)){
                 session.setAttribute("login", 0); // 로그인 성공시 세션
                 session.setAttribute("id", member.getUserid());
-                out.println("<script>location.href='/'; </script>");
+                out.println("<script>location.href='/hello'; </script>");
                 out.flush();
                 out.close();
             }
-            if(memberService.loginCheck(member) == false){
+            if(loginDAO.loginCheck(member) == false){
                 out.println("<script>alert('로그인 정보를 확인하세요!'); history.go(-1); </script>");
                 out.flush();
                 out.close();

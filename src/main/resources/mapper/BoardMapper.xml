@@ -11,10 +11,10 @@
         SELECT COUNT(*) FROM login;
     </select>
 
-    <select id="userCheck" resultType="Integer">
+    <select id="loginCheck" resultType="integer">
         SELECT  COUNT(*) FROM login
-        WHERE   userid = "#{userid}"
-        AND     userpwd = "#{userpwd}";
+        WHERE   userid = #{userid}
+        AND     userpwd = #{userpwd};
      </select>
 
 </mapper>

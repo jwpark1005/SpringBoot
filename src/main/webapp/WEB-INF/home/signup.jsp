@@ -9,7 +9,7 @@
 </head>
 <body>
     <div>
-        <form role="search" action="<%=request.getContextPath()%>/login/loginCheck">
+        <form action="/signcheck">
             <div>
                 <input type="text" name="userid" placeholder="Userid">
             </div>
