@@ -1,14 +1,14 @@
-package sec.maru;
+package com.example.demo.model;
 
 public class Member {
 
     String userid;
-    String uname;
+    String username;
     String userpwd;
 
     public Member(String userid, String uname, String userpwd) {
         this.userid = userid;
-        this.uname = uname;
+        this.username = username;
         this.userpwd = userpwd;
     }
 
@@ -24,11 +24,11 @@ public class Member {
     }
 
     public String getUname() {
-        return uname;
+        return username;
     }
 
     public void setUname(String uname) {
-        this.uname = uname;
+        this.username = username;
     }
 
     public String getUserpwd() {

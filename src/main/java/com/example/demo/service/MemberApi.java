@@ -1,10 +1,12 @@
-package sec.maru;
+package com.example.demo.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import com.example.demo.model.LoginDAO;
+import com.example.demo.model.Member;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -46,7 +48,9 @@ public class MemberApi {
     public void loginCheck(Locale locale, Model model, Member member, HttpSession session, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
-        if((member.getUname() != null && !member.getUserid().equals("") && member.getUserpwd() != null) && !member.getUserpwd().equals("")){
+        if((member.getUname() != null && !member.getUserid().equals("") &&
+            member.getUserpwd() != null) && !member.getUserpwd().equals("")){
+
             if(loginDAO.loginCheck(member)){
                 session.setAttribute("login", 0); // 로그인 성공시 세션
                 session.setAttribute("id", member.getUserid());
@@ -54,6 +58,7 @@ public class MemberApi {
                 out.flush();
                 out.close();
             }
+
             if(loginDAO.loginCheck(member) == false){
                 out.println("<script>alert('로그인 정보를 확인하세요!'); history.go(-1); </script>");
                 out.flush();

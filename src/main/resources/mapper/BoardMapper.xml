@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="sec.maru.MemberRepository">
-
+<mapper namespace="com.example.demo.repo.MemberRepository">
     <select id="getUserList" resultType="Member">
         SELECT * FROM login;
     </select>
@@ -15,6 +14,5 @@
         SELECT  COUNT(*) FROM login
         WHERE   userid = #{userid}
         AND     userpwd = #{userpwd};
-     </select>
-
+    </select>
 </mapper>

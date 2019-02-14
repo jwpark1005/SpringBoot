@@ -1,4 +1,4 @@
-package sec.maru;
+package com.example.demo.model;
 
 public interface LoginDAO {
 

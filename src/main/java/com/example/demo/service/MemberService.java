@@ -1,7 +1,8 @@
-package sec.maru;
+package com.example.demo.service;
 
+import com.example.demo.model.Member;
+import com.example.demo.repo.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +20,6 @@ public class MemberService {
     public List<Member> selectMemberList(){
         return memberRepository.getUserList();
     }
-
 
     public Member MemberList(){
         Member member = new Member();
